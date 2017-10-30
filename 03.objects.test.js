@@ -3,7 +3,7 @@ test('property access', () => {
   const obj = {
     name: 'Julian',
     lastname: 'Brown',
-    age: '35'
+    age: 35
   };
 
   expect(obj['name']).toBe('Julian');
@@ -16,7 +16,7 @@ test('key access', () => {
   const obj = {
     name: 'Julian',
     lastname: 'Brown',
-    age: '35'
+    age: 35
   };
 
   expect(obj.name).toBe('Julian');
@@ -24,7 +24,7 @@ test('key access', () => {
   expect(obj.age).toBe(35);
 });
 
-test.only('computed property names', () => {
+test('computed property names', () => {
   //RULE: USE computed property names
   const real = 'real_';
   const fake = 'fake_';
@@ -47,15 +47,15 @@ test.only('computed property names', () => {
 test('define object properties', () => {
   //RULE: USE Object.defineProperty
 
-  const vip = {};
-  Object.defineProperty(vip, 'name', { value: 'Kelly'});
-  Object.defineProperty(vip, 'lastname', { value: 'White'});
-  Object.defineProperty(vip, 'age', { value: '35'});
+  const vip = {
+    name: 'Kelly',
+    lastname: 'White'
+  };
+  Object.defineProperty(vip, 'age', { value: 35});
 
-  vip.age = 37;
   expect(vip.name).toBe('Kelly');
   expect(vip.lastname).toBe('White');
-  expect(vip.age).toBe('35');
+  expect(vip.age).toBe(35);
 });
 
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object
