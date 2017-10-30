@@ -4,17 +4,17 @@
 
 */
 
-function Animal() { }
+class Animal {
 
-Animal.prototype.speak = function() {
-  return "meow";
+  static eat() {
+    return 'nom nom nom';
+  }
+
+  speak() {
+    return 'meow';
+  }
 }
 
-Animal.eat = function() {
-  return 'nom nom nom';
-}
-
-const Cat = new Animal();
 
 test('Make cat meow', () => {
 
@@ -32,10 +32,16 @@ test('Make cat meow', () => {
 
 */
 
+class Kitten extends Animal {
+  speak() {
+    return 'kitten meow';
+  }
+}
+
 test('Hear the kitten meow', () => {
 
-    const Kitty = new Kitten();
+    const kitty = new Kitten();
 
-    expect(Kitty.speak()).toBe('kitten meow');
+    expect(kitty.speak()).toBe('kitten meow');
 });
 
